@@ -39,7 +39,7 @@
 	- BOOTPROTO=none
 
     <sub> Changing the network address should only be done on a separate host, and if two VMs are running on the same host, it is not practical to do so. Therefore, BOOTPROTO must be set to DHCP</sub>	
-# How to configure the network adapter settings in more than one virtual machine
+# How to configure the network adapter settings in more than one VM
 
 - [ ] Change the network adapter setting to **Bridge** and ensure that the **Replicate** option is enabled
 - [ ] To ensure that each virtual machine has an individual IP address, use the '**ip a s**' command

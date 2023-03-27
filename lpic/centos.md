@@ -27,7 +27,7 @@
     ```
     hostnamectl set-hostname "devops"
     ```
-# How to configure network adapter settings in one VM
+## How to configure network adapter settings in one VM
 - [ ] Identify the first file in the path below beginning with ifcfg*:
     ```
    ·/etc/sysconfig/network-scripts/
@@ -39,7 +39,7 @@
 	- BOOTPROTO=none
 
     <sub> Changing the network address should only be done on a separate host, and if two VMs are running on the same host, it is not practical to do so. Therefore, BOOTPROTO must be set to DHCP</sub>	
-# How to configure the network adapter settings in more than one VM
+## How to configure network adapter settings in more than one VM
 
 - [ ] Change the network adapter setting to **Bridge** and ensure that the **Replicate** option is enabled
 - [ ] To ensure that each virtual machine has an individual IP address, use the '**ip a s**' command
@@ -57,3 +57,9 @@
 - [ ] The **'ping 8.8.8.8'** command can be used if you want to ensure that your setting is working properly
 
     <sub>The setting is incorrect if you receive **'connect: Network is unreachable'** message</sub>  
+    
+    <sub> 
+    
+    There is additional information available on [redhat](https://www.redhat.com/sysadmin/network-interface-linux) and [stack exchange](https://superuser.com/questions/1362821/ping-8-8-8-8-connect-network-is-unreachable-in-centos-7-on-vmware-workstati)    
+    
+    </sub> 

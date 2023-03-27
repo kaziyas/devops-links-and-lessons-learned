@@ -1,22 +1,59 @@
 # How to install CentOS 7.9 on a virtual machine
 
-1. [ ] Download and install VMware Workstation Player | Pro from [here](https://www.vmware.com/products/workstation-pro.html).
-2. [ ] Create a new virtual machine in the VMware workstation application.
-3. [ ] Configure additional parameters for RAM, HDD, CPU, ...
-4. [ ] A light CentOS Linux **ISO** can be downloaded from this [website](https://ftp.riken.jp/Linux/centos/7.9.2009/isos/x86_64/).
-5. [ ] Imports the downloaded ISO into the virtual machine.
-6. [ ] Set up a network adapter by following the instructions in this [link]( https://linuxhint.com/install_centos8_netboot_iso). 
-> the first part of the instructions about creating a bootable flash drive can be . skipped.
-7. [ ] In the Software section, use the address https://mirror.23m.com/centos/7.9.2009/os/x86_64 .
-8. [ ] The CentOS prompt will appear once you have created a root user and completed the remaining steps.
-9. [ ] Connect to the installed operating system using the **Putty** application.
-10. [ ] Once you have successfully logged into the OS, run the following command to install a few additional useful tools:
+- [ ] Download and install VMware Workstation Player | Pro from [here](https://www.vmware.com/products/workstation-pro.html)
+- [ ] Create a new virtual machine in the VMware workstation application
+- [ ] Configure additional parameters for RAM, HDD, CPU, ...
+- [ ] A light CentOS Linux **ISO** can be downloaded from this [website](https://ftp.riken.jp/Linux/centos/7.9.2009/isos/x86_64/)
+- [ ] Imports the downloaded ISO into the virtual machine
+- [ ] Set up a network adapter by following the instructions in this [link]( https://linuxhint.com/install_centos8_netboot_iso)
+ 
+   <sub> the first part of the instructions about creating a bootable flash drive can be skipped. </sub>
+- [ ] In the Software section, use the address https://mirror.23m.com/centos/7.9.2009/os/x86_64
+- [ ] The CentOS prompt will appear once you have created a root user and completed the remaining steps
+- [ ] Connect to the installed operating system using the **Putty** application
+- [ ] Once you have successfully logged into the OS, run the following command to install a few additional useful tools:
     ```
     yum -y install vim-common vim-enhanced bash-completion epel-release
     ```
-11. [ ] You are now able to use the vim editor to create and edit the file
-12. [ ] Use the following command to change the host name:
+- [ ] You are now able to use the vim editor to create and edit the file
+- [ ] Use the following command to change the host name:
+   
+    <sub> 
+   
+    there is additional information available [here](https://phoenixnap.com/kb/how-to-set-or-change-a-hostname-in-centos-7)
+    
+    </sub>
+    
     ```
     hostnamectl set-hostname "devops"
     ```
-    > there is additional information available [here](https://phoenixnap.com/kb/how-to-set-or-change-a-hostname-in-centos-7)
+# How to configure network adapter settings in one VM
+- [ ] Identify the first file in the path below beginning with ifcfg*:
+    ```
+   ·/etc/sysconfig/network-scripts/
+    ```
+- [ ] Use the **vim** command to edit the file and set the following parameters:
+	- DNS1=8.8.8.8
+	- IPADDR=192.168.x.x
+	- GATEWAY=x.x.x.x
+	- BOOTPROTO=none
+
+    <sub> Changing the network address should only be done on a separate host, and if two VMs are running on the same host, it is not practical to do so. Therefore, BOOTPROTO must be set to DHCP</sub>	
+# How to configure the network adapter settings in more than one virtual machine
+
+- [ ] Change the network adapter setting to **Bridge** and ensure that the **Replicate** option is enabled
+- [ ] To ensure that each virtual machine has an individual IP address, use the '**ip a s**' command
+
+<p align="center">
+    <img src="images/ip_a.png"/>
+</p>
+
+- [ ] Follow the **Edit -> Virtual Network Editor** from the Workstation Pro in order to ensure that DHCP is enabled for each virtual machine
+
+<p align="center">
+    <img src="images/dhcp.png"/>
+</p>
+
+- [ ] The **'ping 8.8.8.8'** command can be used if you want to ensure that your setting is working properly
+
+    <sub>The setting is incorrect if you receive **'connect: Network is unreachable'** message</sub>  

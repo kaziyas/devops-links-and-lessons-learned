@@ -9,6 +9,6 @@ Feel free to add more resources by submitting pull requests
 - Git
 - Github
 - LPIC
-- NGINX
+- Nginx
 - MySql
 - Shell script      

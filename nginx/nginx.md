@@ -37,7 +37,7 @@
     systemctl start nginx
     ```
     <sub> 
-    In the console, the $\color{green}{active [running]}$ in green indicates that nginx is installed and running
+    In the console, the $\color{green}{active (running)}$ in green indicates that nginx is installed and running
     </sub>
 
 - [ ] The nginx message, **welcome to nginx**, should appear in the browser after disabling the firewall:   
@@ -47,7 +47,7 @@
     ```
 - [ ] Use the VM IP address in a browser to view the nginx message
     ```
-    http://192.168.x.x:8080
+    http://192.168.x.x
     ```
 <sub> 
 

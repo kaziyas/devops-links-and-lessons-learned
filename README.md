@@ -8,7 +8,7 @@ Feel free to add more resources by submitting pull requests
 - Docker
 - Git
 - Github
-- LPIC
-- Nginx
+- [LPIC](https://github.com/kaziyas/devops-links-and-lessons-learned/blob/master/lpic/README.md)
+- [Nginx](https://github.com/kaziyas/devops-links-and-lessons-learned/blob/master/lpic/nginx.md)
 - MySql
 - Shell script      
